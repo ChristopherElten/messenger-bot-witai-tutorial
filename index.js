@@ -30,7 +30,7 @@ app.get('/webhooks', function (req, res) {
   if (req.query['hub.verify_token'] === Config.FB_VERIFY_TOKEN) {
     res.send(req.query['hub.challenge'])
   }
-  res.send('Error, wrong token')
+  res.send('Error, wrong token' + req.query['hub.verify_token'])
 })
 
 // to send messages to facebook
